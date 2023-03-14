@@ -5,7 +5,8 @@
 An application written in SwiftUI + Combine, MVVM.
 
 ## Features:
-- Updating data via a websocket
+- Rest API (coingekto.com)
+- Updating data via a websocket (coincap.io)
 - Autoconnect web-socket
 - Saved selected coin
 - Menu bar only
