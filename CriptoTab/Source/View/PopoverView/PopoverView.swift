@@ -70,8 +70,18 @@ extension PopoverView{
     @ViewBuilder
     private var graphSection: some View{
         if let coin = viewModel.selectedCoin, let prices = coin.sparklineIn7D?.price{
-            LineGraph(data: prices, profit: coin.isIncreasedPrice)
-                .frame(height: 100)
+            VStack {
+                LineGraph(data: prices, profit: coin.isIncreasedPrice)
+                    .frame(height: 100)
+                HStack{
+                    Spacer()
+                    Text(Helpers.dayBefore(7).formatted(date: .abbreviated, time: .omitted))
+                    Image(systemName: "arrow.right")
+                    Text(Date().formatted(date: .abbreviated, time: .omitted))
+                }
+                .font(.system(size: 10, weight: .light))
+            }
+            
         }
     }
     
