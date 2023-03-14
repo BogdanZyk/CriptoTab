@@ -120,7 +120,7 @@ extension CoinWebSocketService{
 extension CoinWebSocketService{
     private func shedulePing(){
         let taskId = self.wsTask?.taskIdentifier ?? -1
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5){ [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10){ [weak self] in
             guard let self = self, let task = self.wsTask, task.taskIdentifier == taskId else {return}
             if task.state == .running, self.pingTryCount < 2{
                 self.pingTryCount += 1
